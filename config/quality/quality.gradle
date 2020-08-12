@@ -43,7 +43,7 @@ task findbugs(type: FindBugs,
         description: 'Inspect java bytecode for bugs',
         dependsOn: ['compileDebugSources', 'compileReleaseSources']) {
 
-    ignoreFailures = false
+    ignoreFailures = true
     effort = "max"
     reportLevel = "high"
     excludeFilter = new File("$qualityConfigDir/findbugs/android-exclude-filter.xml")
@@ -70,8 +70,10 @@ task findbugs(type: FindBugs,
 
 task pmd(type: Pmd, group: 'Verification', description: 'Inspect sourcecode for bugs') {
     ruleSetFiles = files("$qualityConfigDir/pmd/pmd-ruleset.xml")
-    ignoreFailures = false
+    ignoreFailures = true
     ruleSets = []
+
+
 
     source 'src'
     include '**/*.java'

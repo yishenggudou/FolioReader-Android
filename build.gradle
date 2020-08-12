@@ -4,8 +4,13 @@ buildscript {
     apply from: 'versions.gradle'
 
     repositories {
-        google()
-        jcenter()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+
+        // google()
+        // jcenter()
     }
 
     dependencies {
@@ -29,9 +34,13 @@ allprojects {
     }
 
     repositories {
-        mavenLocal()
-        google()
-        jcenter()
+        // mavenLocal()
+        // google()
+        // jcenter()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         maven { url "https://jitpack.io" }
     }
 }
@@ -39,3 +48,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+tasks.whenTaskAdded { task ->
+    if (task.name.contains("pmd") || task.name.contains("lint")) {
+        task.enabled = false
+    }
+}
+
+//https://stackoverflow.com/questions/47192746/how-can-i-disable-a-task-in-build-gradle
