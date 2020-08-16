@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat;
 
 import org.json.JSONObject;
 
+import java.util.List;
+
 /**
  * Configuration class for FolioReader.
  */
@@ -31,8 +33,9 @@ public class Config implements Parcelable {
     private static final Direction DEFAULT_DIRECTION = Direction.VERTICAL;
     private static final int DEFAULT_THEME_COLOR_INT =
             ContextCompat.getColor(AppContext.get(), R.color.default_theme_accent_color);
-    private String AdmobId;
+    private String AdmobApplicationId;
     private String AdmobUnitId;
+    private List<String> testDeviceList;
     private int font = 3;
     private int fontSize = 2;
     private boolean nightMode;
@@ -158,12 +161,20 @@ public class Config implements Parcelable {
         return this;
     }
 
-    public String getAdmobId() {
-        return AdmobId;
+    public String getAdmobApplicationId() {
+        return AdmobApplicationId;
     }
 
-    public void setAdmobId(String admobId) {
-        AdmobId = admobId;
+    public void setAdmobApplicationId(String admobApplicationId) {
+        AdmobApplicationId = admobApplicationId;
+    }
+
+    public List<String> getTestDeviceList() {
+        return testDeviceList;
+    }
+
+    public void setTestDeviceList(List<String> testDeviceList) {
+        this.testDeviceList = testDeviceList;
     }
 
     public String getAdmobUnitId() {
@@ -309,6 +320,9 @@ public class Config implements Parcelable {
                 ", showTts=" + showTts +
                 ", allowedDirection=" + allowedDirection +
                 ", direction=" + direction +
+                ", admobApplicationId=" + getAdmobApplicationId() +
+                ", unitId=" + getAdmobUnitId() +
+
                 '}';
     }
 }

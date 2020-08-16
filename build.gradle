@@ -40,3 +40,6 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+project.gradle.startParameter.excludedTaskNames.add(':folioreader:pmd')
+project.gradle.startParameter.excludedTaskNames.add(':folioreader:lint')
+

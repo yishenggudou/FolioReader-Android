@@ -40,6 +40,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -64,6 +65,7 @@ import com.folioreader.ui.view.MediaControllerCallback
 import com.folioreader.util.AppUtil
 import com.folioreader.util.FileUtil
 import com.folioreader.util.UiUtil
+import com.google.android.gms.ads.AdView
 import org.greenrobot.eventbus.EventBus
 import org.readium.r2.shared.Link
 import org.readium.r2.shared.Publication
@@ -298,7 +300,9 @@ class FolioActivity : AppCompatActivity(), FolioActivityCallback, MediaControlle
         } else {
             setupBook()
         }
-        FolioActivityHolder.setActivity(this);
+        val appContext = applicationContext
+        val layoutView = findViewById<ConstraintLayout>(R.id.folio_activity_root_layout)
+        FolioActivityHolder(appContext, this, layoutView).initAdmob()
     }
 
     private fun initActionBar() {

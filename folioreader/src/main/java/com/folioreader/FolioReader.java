@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Parcelable;
+
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.folioreader.model.HighLight;
 import com.folioreader.model.HighlightImpl;
 import com.folioreader.model.locators.ReadLocator;
@@ -19,6 +21,9 @@ import com.folioreader.ui.base.OnSaveHighlight;
 import com.folioreader.ui.base.SaveReceivedHighlightTask;
 import com.folioreader.util.OnHighlightListener;
 import com.folioreader.util.ReadLocatorListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -51,6 +56,24 @@ public class FolioReader {
     private ReadLocatorListener readLocatorListener;
     private OnClosedListener onClosedListener;
     private ReadLocator readLocator;
+    private AdView adView;
+    private AdRequest adRequest;
+
+    public AdView getAdView() {
+        return adView;
+    }
+
+    public void setAdView(AdView adView) {
+        this.adView = adView;
+    }
+
+    public AdRequest getAdRequest() {
+        return adRequest;
+    }
+
+    public void setAdRequest(AdRequest adRequest) {
+        this.adRequest = adRequest;
+    }
 
     @Nullable
     public Retrofit retrofit;
@@ -193,6 +216,13 @@ public class FolioReader {
         this.config = config;
         this.overrideConfig = overrideConfig;
         return singleton;
+    }
+
+    /**
+     * @return
+     */
+    public Config getConfig() {
+        return config;
     }
 
     public FolioReader setPortNumber(int portNumber) {
