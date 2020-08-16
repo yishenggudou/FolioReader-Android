@@ -155,7 +155,7 @@ public class FolioReader {
         return singleton;
     }
 
-    private Intent getIntentFromUrl(String assetOrSdcardPath, int rawId) {
+    public Intent getIntentFromUrl(String assetOrSdcardPath, int rawId) {
 
         Intent intent = new Intent(context, FolioActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

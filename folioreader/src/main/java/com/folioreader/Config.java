@@ -4,9 +4,11 @@ import android.content.res.Resources;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.core.content.ContextCompat;
+
 import org.json.JSONObject;
 
 /**
@@ -29,7 +31,8 @@ public class Config implements Parcelable {
     private static final Direction DEFAULT_DIRECTION = Direction.VERTICAL;
     private static final int DEFAULT_THEME_COLOR_INT =
             ContextCompat.getColor(AppContext.get(), R.color.default_theme_accent_color);
-
+    private String AdmobId;
+    private String AdmobUnitId;
     private int font = 3;
     private int fontSize = 2;
     private boolean nightMode;
@@ -153,6 +156,22 @@ public class Config implements Parcelable {
     public Config setFontSize(int fontSize) {
         this.fontSize = fontSize;
         return this;
+    }
+
+    public String getAdmobId() {
+        return AdmobId;
+    }
+
+    public void setAdmobId(String admobId) {
+        AdmobId = admobId;
+    }
+
+    public String getAdmobUnitId() {
+        return AdmobUnitId;
+    }
+
+    public void setAdmobUnitId(String admobUnitId) {
+        AdmobUnitId = admobUnitId;
     }
 
     public boolean isNightMode() {
