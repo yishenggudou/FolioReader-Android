@@ -398,7 +398,7 @@ $(function () {
         $(textarea).appendTo(container);
         $(border).appendTo(container);
 
-        $(this).after(container);
+        //$(this).after(container);
     });
 });
 

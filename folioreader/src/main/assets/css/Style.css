@@ -111,7 +111,7 @@ sup {
 
 /* iBooks like */
 a { text-decoration: none; }
-pre { white-space: pre-wrap; }
+pre { white-space: pre-wrap !important; }
 @page { margin: 0 0 !important; }
 table, ol, il { text-align: -webkit-auto; }
 h1 ,h2 ,h3 ,h4 ,h5 ,h6 {
