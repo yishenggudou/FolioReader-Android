@@ -111,7 +111,7 @@ class SearchActivity : AppCompatActivity(), OnItemClickListener {
         init(config)
         val appContext = applicationContext
         val layoutView = findViewById<ConstraintLayout>(R.id.activity_search_root_layout)
-        FolioSearchActivityHolder(appContext, this, layoutView).initAdmob()
+        //FolioSearchActivityHolder(appContext, this, layoutView).initAdmob()
     }
 
     private fun init(config: Config) {
